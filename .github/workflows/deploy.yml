@@ -11,34 +11,33 @@ jobs:
     steps:
       - name: Clone Repostitory
         uses: actions/checkout@v2
-      - name: Check for Security
-        run: |
-            echo "Running Security Checks.."
-            sleep 5s;
-            echo "Running Security Checks.. 1"
-            sleep 5s;
-            echo "Running Security Checks.. 2"
-            sleep 5s;
-            echo "Running Security Checks.. 3"
-            sleep 5s;
-      # - name: Server Start
-      #   uses: appleboy/ssh-action@master
-      #   with: 
-      #     host: ${{ secrets.REMOTE_HOST }}
-      #     username: ${{ secrets.REMOTE_USERNAME }}
-      #     key: ${{ secrets.PRIVATE_KEY }}
+      # - name: Check for Security
+      #   run: |
+      #       echo "Running Security Checks.."
+      #       sleep 5s;
+      #       echo "Running Security Checks.. 1"
+      #       sleep 5s;
+      #       echo "Running Security Checks.. 2"
+      #       sleep 5s;
+      #       echo "Running Security Checks.. 3"
+      #       sleep 5s;
+      - name: Server Start
+        uses: appleboy/ssh-action@master
+        with: 
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USERNAME }}
+          password: ${{ secrets.PASSWORD }}
 
-          # script: |
-          #   echo "test..."
-          #   cd /home/wms/nginx
-          #   rm -rf /home/wms/nginx/blog
-          #   rm -rf /home/wms/nginx/blog.tgz
-          #   wget https://github.com/TheWomanLiketheWind/nuxtRealworld/releases/latest/download/release.tgz -O blog.tgz
-          #   tar zxvf blog.tgz
-          #   cd blog
-          #   docker rmi blog
-          #   docker build -t blog .
-          #   docker stop my-blog
-          #   docker rm my-blog
-          #   docker run  -p 3000:3000 --name my-blog -d blog
-          #   docker restart nginx_wms
+          script: |
+            echo "test..."
+            cd /home/wms/nginx
+            rm -rf /home/wms/nginx/blog
+            rm -rf /home/wms/nginx/xgg_blog
+            git clone https://github.com/JIAFENG123/xgg_blog.git
+            cd xgg_blog
+            docker rmi blog
+            docker build -t blog .
+            docker stop my-blog
+            docker rm my-blog
+            docker run  -p 3000:3000 --name my-blog -d blog
+            docker restart nginx_wms
