@@ -26,7 +26,8 @@ jobs:
         with: 
           host: ${{ secrets.REMOTE_HOST }}
           username: ${{ secrets.REMOTE_USERNAME }}
-          password: ${{ secrets.PASSWORD }}
+          password: ${{ secrets.PRIVATE_KEY }}
+
           script: |
             echo "test..."
             cd /home/wms/nginx
