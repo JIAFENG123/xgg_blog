@@ -1,0 +1,88 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+:root {
+  /* Your default theme */
+  --background: white;
+  --foreground: black;
+}
+
+[data-theme='dark'] {
+  --background: black;
+  --foreground: white;
+}
+/* html {
+  background-color: rgb(247,247,247);
+  --text: #000000;
+  --text2: #333333;
+  --bg2: #eeeeee;
+  --bg: #ffffff;
+}
+html.dark {
+  --text: #ffffff;
+  --text2: #eeeeee;
+  --bg2: #1B1A17;
+  --bg: #000000;
+}
+@media (prefers-color-scheme: dark) {
+  html {
+    --text: #ffffff;
+    --text2: #eeeeee;
+    --bg2: #1B1A17;
+    --bg: #000000;
+  }
+  html.light {
+    --text: #000000;
+    --text2: #333333;
+    --bg2: #eeeeee;
+    --bg: #ffffff;
+  }
+} */
+
+
+/* *{
+  transition: background 0.3s ease;
+} */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  border-radius: 3px;
+  background: rgba(0,0,0,0.06);
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.1);
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background: rgba(0,0,0,0.12);
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0,0,0,0.24);
+}
+
+
+body{ -webkit-tap-highlight-color:rgba(0,0,0,0); }
+/* a:focus,
+input:focus,
+p:focus,
+div:focus{
+-webkit-tap-highlight-color:rgba(0,0,0,0);
+-webkit-user-modify:read-write-plaintext-only; 
+} */

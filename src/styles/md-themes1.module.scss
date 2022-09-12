@@ -1,0 +1,194 @@
+.markdown-body-x {
+    color: #595959;
+    font-size: 15px;
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+    background-image: linear-gradient(90deg, rgba(60, 10, 30, 0.04) 3%, rgba(0, 0, 0, 0) 3%), linear-gradient(360deg, rgba(60, 10, 30, 0.04) 3%, rgba(0, 0, 0, 0) 3%);
+    background-size: 20px 20px;
+    background-position: center center;
+  }
+  
+
+
+  /* 段落 */
+  .markdown-body-x p {
+    color: #595959;
+    font-size: 15px;
+    line-height: 2;
+    font-weight: 400;
+    font-family:'Monaco';
+  }
+  
+  
+  /* 段落间距控制 */
+  .markdown-body-x p+p {
+    margin-top: 16px;
+  }
+  
+  /* 标题的通用设置 */
+  .markdown-body-x h1,
+  .markdown-body-x h2,
+  .markdown-body-x h3,
+  .markdown-body-x h4,
+  .markdown-body-x h5,
+  .markdown-body-x h6 {
+    padding: 30px 0;
+    margin: 0;
+    color: #135ce0;
+  }
+  
+  /* 一级标题 */
+  .markdown-body-x h1 {
+    position: relative;
+    text-align: center;
+    font-size: 22px;
+    margin: 50px 0;
+  }
+  
+  /* 一级标题前缀，用来放背景图，支持透明度控制 */
+  .markdown-body-x h1:before {
+    position: absolute;
+    content: "";
+    top: -10px;
+    left: 50%;
+    width: 32px;
+    height: 32px;
+    transform: translateX(-50%);
+    background-size: 100% 100%;
+    opacity: .36;
+    background-repeat: no-repeat;
+    background: url('https://xgg-pic.oss-cn-shenzhen.aliyuncs.com/imgs/yumao.svg');
+  }
+  
+  /* 二级标题 */
+  .markdown-body-x h2 {
+    position: relative;
+      font-size: 20px;
+    border-left: 4px solid;
+    padding: 0 0 0 10px;
+    margin: 30px 0;
+  }
+  
+  /* 三级标题 */
+  .markdown-body-x h3 {
+    font-size: 16px;
+  }
+  
+  /* 无序列表 */
+  .markdown-body-x ul {
+    list-style: disc outside;
+    margin-left: 2em;
+    margin-top: 1em;
+  }
+  
+  /* 无序列表内容 */
+  .markdown-body-x li {
+    line-height: 2;
+    color: #595959;
+    margin-bottom: 0;
+    list-style: inherit;
+  }
+  
+  .markdown-body-x img {
+    border-radius: 4px;
+    max-width: 100%;
+  }
+  
+  /* 已加载图片 */
+  .markdown-body-x img.loaded {
+    margin: 0 auto;
+    display: block;
+  }
+  
+  /* 引用 */
+  .markdown-body-x blockquote {
+    background: #fff9f9;
+    margin: 2em 0;
+    padding: 2px 20px;
+    border-left: 4px solid #b2aec5;
+  }
+  
+  /* 引用文字 */
+  .markdown-body-x blockquote p {
+    color: #666 !important;
+    line-height: 2;
+  }
+  
+  /* 链接 */
+  .markdown-body-x a {
+    color: #036aca;
+    border-bottom: 1px solid rgba(3, 106, 202, .8);
+    font-weight: 400;
+    text-decoration: none;
+  }
+  
+  /* 加粗 */
+  .markdown-body-x strong {
+    color: #036aca;
+  }
+  
+  /* 加粗斜体 */
+  .markdown-body-x em strong {
+    color: #036aca;
+  }
+  
+  /* 分隔线 */
+  .markdown-body-x hr {
+    border-top: 1px solid #135ce0;
+  }
+  // .markdown-body-x pre {
+  //   overflow: auto;
+  // }
+  /* 代码 */
+  /* .markdown-body-x pre {
+    overflow: auto;
+  }
+  
+  .markdown-body-x pre,
+  .markdown-body-x code {
+    overflow: auto;
+    position: relative;
+    line-height: 1.75;
+    font-family: Menlo,Monaco,Consolas,Courier New,monospace;
+  } */
+  
+  /* .markdown-body-x pre>code {
+    font-size: 12px;
+    padding: 15px 12px;
+    margin: 0;
+    word-break: normal;
+    display: block;
+    overflow-x: auto;
+    color: #333;
+    background: #f8f8f8;
+  }
+  
+  .markdown-body-x code {
+    word-break: break-word;
+    border-radius: 2px;
+    overflow-x: auto;
+    background-color: #fff5f5;
+    color: #ff502c;
+    font-size: .87em;
+    padding: .065em .4em;
+  } */
+  
+  /* 表格 */
+  .markdown-body-x table {
+    border-collapse: collapse;
+    margin: 1rem 0;
+    overflow-x: auto;
+  }
+  
+  .markdown-body-x table th,
+  .markdown-body-x table td {
+    border: 1px solid #dfe2e5;
+    padding: .6em 1em;
+  }
+  
+  .markdown-body-x table tr {
+    border-top: 1px solid #dfe2e5;
+  }
+  
+  .markdown-body-x table tr:nth-child(2n) {
+    background-color: #f6f8fa;
+  }
