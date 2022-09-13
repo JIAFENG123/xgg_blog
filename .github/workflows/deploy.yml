@@ -1,7 +1,7 @@
 name: SimplePipeline
 
 on:
-  push:
+  workflow_dispatch:
     branches: [main]
 
 jobs:
