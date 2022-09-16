@@ -15,7 +15,7 @@ env:
   # 可以通过 对象存储/Bucket列表/[对应bucket名称]/概览 来查看
   OSS_END_POINT: oss-cn-shenzhen.aliyuncs.com
 
-  IMAGE_TAG: xgg-docker-test
+
 jobs:
   deploy:
     name: Deployment
@@ -24,6 +24,12 @@ jobs:
       matrix:
         node-version: [16.x]
     steps:
+      - name: Set env to production
+        run: |
+          echo "DOCKER_PORT=3003" >> $GITHUB_ENV
+          echo "IMAGE_NAME=${{ env.BASE_IMAGE_NAME}}" >> $GITHUB_ENV
+          echo "IMAGE_TAG=${{ secrets.ALI_DOCKER_REGISTRY }}/${{ env.DOCKER_NAMESPACE }}/${{ env.BASE_IMAGE_NAME}}:${{ github.sha }}" >> $GITHUB_ENV
+
       - name: Clone Repostitory
         uses: actions/checkout@v2
       # 第3步的准备工作，先配置好node环境
