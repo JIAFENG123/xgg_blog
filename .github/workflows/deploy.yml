@@ -78,23 +78,18 @@ jobs:
           tags: ${{ env.IMAGE_TAG }}
 
 
-      # - name: Server Start
-      #   uses: appleboy/ssh-action@master
-      #   with: 
-      #     host: ${{ secrets.REMOTE_HOST }}
-      #     username: ${{ secrets.REMOTE_USERNAME }}
-      #     key: ${{ secrets.PRIVATE_KEY }}
+      - name: Server Start
+        uses: appleboy/ssh-action@master
+        with: 
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USERNAME }}
+          key: ${{ secrets.PRIVATE_KEY }}
 
-          # script: |
-          #   echo "test..."
-          #   cd /home/wms/nginx
-          #   rm -rf /home/wms/nginx/blog
-          #   rm -rf /home/wms/nginx/xgg_blog
-          #   git clone https://github.com/JIAFENG123/xgg_blog.git
-          #   cd xgg_blog
-          #   docker stop my-blog
-          #   docker rm my-blog
-          #   docker rmi blog
-          #   docker build -t blog .
-          #   docker run  -p 3000:3000 --name my-blog -d blog
-          #   docker restart nginx_wms
+
+          script: |
+            echo ${{ secrets.ALI_DOCKER_PASSWORD }} | docker login --username ${{ secrets.ALI_DOCKER_USERNAME }} --password-stdin ${{ secrets.ALI_DOCKER_REGISTRY }}
+            docker pull ${{ env.IMAGE_TAG }}
+            docker container stop ${{ env.IMAGE_NAME}} || echo "停止容器[${{ env.IMAGE_NAME}}]异常"
+            docker container rm ${{ env.IMAGE_NAME}} || echo "删除容器[${{ env.IMAGE_NAME}}]异常"
+            docker container run -p 3000:3000 -d --name ${{ env.IMAGE_NAME}} -it ${{ env.IMAGE_TAG }
+            docker restart nginx_wms
