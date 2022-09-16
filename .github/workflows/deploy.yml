@@ -89,5 +89,5 @@ jobs:
             docker pull ${{ env.IMAGE_TAG }}
             docker container stop ${{ env.IMAGE_NAME}} || echo "停止容器[${{ env.IMAGE_NAME}}]异常"
             docker container rm ${{ env.IMAGE_NAME}} || echo "删除容器[${{ env.IMAGE_NAME}}]异常"
-            docker container run -p 3000:3000 -d --name ${{ env.IMAGE_NAME}} -it ${{ env.IMAGE_TAG }
+            docker container run -p 3000:3000 -d --name ${{ env.IMAGE_NAME}} -it ${{ env.IMAGE_TAG }}
             docker restart nginx_wms
