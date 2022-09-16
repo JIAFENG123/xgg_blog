@@ -4,6 +4,8 @@ COPY .next /app/.next
 COPY public /app/public
 COPY package.json /app
 WORKDIR /app
+RUN yarn --production
+EXPOSE 3000
 # building the app
 # RUN yarn
 # RUN yarn build
