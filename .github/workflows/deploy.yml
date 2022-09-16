@@ -36,8 +36,8 @@ jobs:
         # 对应第3步，执行打包命令
       - name: 'Build Front'
         run: |
-          npm i
-          npm run build
+          yarn
+          yarn build
 
       # 第4步的准备工作，登陆OSS
       - name: Set up OSS
