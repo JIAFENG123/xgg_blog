@@ -86,3 +86,8 @@ div:focus{
 -webkit-tap-highlight-color:rgba(0,0,0,0);
 -webkit-user-modify:read-write-plaintext-only; 
 } */
+
+.mapView {
+  height: 150px;
+  border: 1px solid #a8a8a8;
+}

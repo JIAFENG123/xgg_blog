@@ -7,10 +7,22 @@ import sdarkLogo from "public/images/sdarkLogo.svg";
 import { useTheme } from "next-themes";
 import { useWindowSize } from "react-use";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+
 const Footer = () => {
   const [mounted, setMounted] = useState(false);
   const { resolvedTheme } = useTheme();
+  const router = useRouter();
+  const [poem, _] = useState({} as { content: string });
   const { width } = useWindowSize();
+  useEffect(() => {
+    fetch(`https://v1.jinrishici.com/all.json`)
+      .then((res) => res.json())
+      .then((data) => {
+        _(data as unknown as { content: string });
+      });
+  }, [router.route]);
+
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -35,14 +47,19 @@ const Footer = () => {
           />
 
           <p className="text-xs font-sans dark:text-white">
-            <span className="font-mono">逝者如斯夫，不舍昼夜</span>
+            <span className="font-mono">{poem.content}</span>
             <br></br>
             <span>© 2022</span>&nbsp;&nbsp;Powered by XGG
           </p>
         </section>
-        <section className="cursor-pointer">
+        <a
+          href="https://github.com/JIAFENG123"
+          target="_Blank"
+          title="github"
+          className="cursor-pointer"
+        >
           <Icon icon="ion:logo-github" className=" w-7 h-7 dark:text-white" />
-        </section>
+        </a>
       </div>
     </footer>
   );

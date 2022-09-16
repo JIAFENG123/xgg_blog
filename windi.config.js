@@ -31,6 +31,7 @@ export default defineConfig({
       hoverLiBg: "#f5f5f5",
       readMoreHover: "#eee",
       blogLightBg: "#F0ECE3",
+      
     }),
 
     borderColor: (theme) => ({

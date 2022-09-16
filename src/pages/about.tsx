@@ -1,28 +1,67 @@
-function Blog({ posts }:{posts:any}) {
+import Card from "@/components/Card";
+import SelfIntro from "@/components/SelfIntro";
+import MainSection from "@/layouts/MainSection";
+import { useEffect } from "react";
+import TypeIt from "typeit";
+
+import { EsriMap } from "../components";
+import avatar from "public/images/avatar.jpg";
+import Image from "next/image";
+
+function About() {
+  useEffect(() => {
+    // new TypeIt(".skills", {
+    //   strings: [
+    //     "This is a great string.",
+    //     "But here is a better one.",
+    //     "This is a great string.",
+    //     "But here is a better one.",
+    //     "This is a great string.",
+    //     "But here is a better one.",
+    //     "This is a great string.",
+    //     "But here is a better one.",
+    //     "This is a great string.",
+    //     "But here is a better one.",
+    //   ],
+    //   speed: 50,
+    //   waitUntilVisible: true,
+    // }).go();
+  });
+
   return (
-    <div>about</div>
-    // <ul>
-    //   {posts.map((post:any) => (
-    //     <li key={post.name}>{post.name}  <p className="mt-[0.3px] text-dark-900 pt-5px">66666666</p></li>
-        
-    //   ))}
-    // </ul>
+    <MainSection className=" justify-center">
+      <section className="w-4/5 <md:w-full bg rounded">
+        <Card title="" className="bg-transparent dark:bg-opacity-75 mt-0">
+          <h2 className="text-center text-lg mb-4 font-bold font-mono">
+            About me
+          </h2>
+          <figure className="w-32 mx-auto h-32 animated hover:animate-rotate_infinite overflow-hidden rounded-1/2 border border-2 border-blue-300 ">
+            <Image
+              unoptimized
+              src={avatar}
+              alt="Picture of the author"
+              className="cursor-pointer "
+            />
+          </figure>
+          <SelfIntro />
+          <div className="<md:hidden mt-3">
+            <EsriMap />
+          </div>
+
+          {/* 
+           ...wait to complete
+          */}
+          {/* <section className="skills text-lg"></section> */}
+        </Card>
+      </section>
+      <style jsx>{`
+        .bg {
+          background-color: white;
+          background-image: url("https://xgg-pic.oss-cn-shenzhen.aliyuncs.com/imgs/snow.gif");
+          background-size: 100% auto;
+        }
+      `}</style>
+    </MainSection>
   );
 }
-// 此函数在构建时被调用
-// export async function getStaticProps() {
-//   // 调用外部 API 获取博文列表
-//   const res = await fetch(
-//     'http:localhost:3000/api/hello'
-//   );
-  
-//   const data = await res.json();
-//   // 通过返回 { props: { posts } } 对象，Blog 组件
-//   // 在构建时将接收到 `posts` 参数
-//   return {
-//     props: {
-//       posts: [data],
-//     },
-//   };
-// }
-export default Blog;
+export default About;

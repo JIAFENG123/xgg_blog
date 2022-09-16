@@ -10,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@arcgis/core": "^4.24.7",
     "@babel/core": "^7.18.5",
     "@babel/preset-typescript": "^7.17.12",
     "@nestjs/common": "^8.4.7",
@@ -27,7 +28,9 @@
     "@windicss/plugin-animations": "^1.0.9",
     "bcryptjs": "^2.4.3",
     "class-validator": "^0.13.2",
+    "framer-motion": "^7.3.5",
     "intercept-stdout": "^0.1.2",
+    "lottie-react": "^2.3.1",
     "marked": "^4.1.0",
     "mysql2": "^2.3.3",
     "next": "12.1.6",
@@ -47,6 +50,7 @@
     "sass": "^1.54.8",
     "swagger-ui-express": "^4.5.0",
     "swr": "^1.3.0",
+    "typeit": "^8.7.0",
     "typeorm": "^0.3.6",
     "windicss": "^3.5.4"
   },

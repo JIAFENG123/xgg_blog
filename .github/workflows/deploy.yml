@@ -35,9 +35,9 @@ jobs:
             rm -rf /home/wms/nginx/xgg_blog
             git clone https://github.com/JIAFENG123/xgg_blog.git
             cd xgg_blog
-            docker rmi blog
-            docker build -t blog .
             docker stop my-blog
             docker rm my-blog
+            docker rmi blog
+            docker build -t blog .
             docker run  -p 3000:3000 --name my-blog -d blog
             docker restart nginx_wms

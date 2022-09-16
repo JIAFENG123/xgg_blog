@@ -6,7 +6,6 @@ import Main from "@/layouts/Main";
 const Home: NextPage = () => {
   return (
     <>
-      
       <Main />
     </>
   );

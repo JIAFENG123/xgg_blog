@@ -1,10 +1,8 @@
 import { Icon } from "@iconify/react";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
-import { Summary } from "src/types/article";
 import avatar from "public/images/avatar.jpg";
-import { fetcher, server } from "src/config";
+import { fetcher } from "src/config";
 import useSWR from "swr";
 export default () => {
   function useSummary() {
@@ -70,20 +68,20 @@ export default () => {
           );
         })}
       </ul>
-      <nav className="flex justify-between w-full items-center ">
-        <a href="" title="github">
+      <nav className="flex justify-between w-full items-center">
+        <a href="https://github.com/JIAFENG123" title="github" target="_Blank">
           <Icon
             icon="ri:github-line"
             className=" cursor-pointer dark:text-white w-4.5 h-4.5 text-menuText dark:text-white/60  hover:text-menuTextHover dark:hover:text-white/200  dark:hover:bg-transparent"
           />
         </a>
-        <a href="" title="qq">
+        <a href="#" title="1796095019">
           <Icon
             icon="ri:qq-line"
             className=" cursor-pointer dark:text-white w-4.5 h-4.5 text-menuText dark:text-white/60  hover:text-menuTextHover dark:hover:text-white/200  dark:hover:bg-transparent"
           />
         </a>
-        <a href="" title="wechat">
+        <a href="#" title="1796095019">
           <Icon
             icon="ri:wechat-line"
             className=" cursor-pointer dark:text-white w-4.5 h-4.5 text-menuText dark:text-white/60  hover:text-menuTextHover dark:hover:text-white/200  dark:hover:bg-transparent"

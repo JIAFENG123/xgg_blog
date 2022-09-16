@@ -9,13 +9,18 @@ import { DynamicSourceType } from "party-js/lib/systems/sources";
 import Head from "next/head";
 import ScrollToTop from "@/components/ScrollToTop";
 import { useEffect } from "react";
+import { AnimatePresence } from "framer-motion";
 import { useRouter } from "next/router";
 
-function MyApp({ Component, pageProps }: AppProps) {
-  const router = useRouter();
+function MyApp({ Component, pageProps, router }: AppProps) {
+  const url =
+    process.env.NODE_ENV === "production"
+      ? `https://blog.xgg.link${router.route}`
+      : `http://localhost:3000${router.route}`;
+
   let emitter = null;
   function fun(e) {
-    e.preventDefault();
+    // e.preventDefault();
     this.style.cursor = "pointer";
     e.stopPropagation();
     emitter = party.confetti(e as MouseEvent, {
@@ -27,22 +32,29 @@ function MyApp({ Component, pageProps }: AppProps) {
   if (typeof window !== "undefined") {
     document.querySelector("body").addEventListener("click", fun);
   }
-  useEffect(() =>{
+  useEffect(() => {
     router.events.on("routeChangeStart", () => {
       document.querySelector("body").removeEventListener("click", fun);
     });
-  })
-  
+  });
+
   return (
     <ThemeProvider attribute="class">
       <Layout>
         <Head>
           <title>XGG</title>
           <link rel="shortcut icon" href="/avatar1.ico" />
+          <link rel="stylesheet" href="https://js.arcgis.com/4.24/esri/themes/light/main.css" />
         </Head>
         <ScrollToTop />
         <NextNProgress height={4} color="#6CC4A1" />
-        <Component {...pageProps} />
+        <AnimatePresence
+          exitBeforeEnter
+          initial={false}
+          onExitComplete={() => window.scrollTo(0, 0)}
+        >
+          <Component {...pageProps} canonical={url} key={url} />
+        </AnimatePresence>
       </Layout>
     </ThemeProvider>
   );
