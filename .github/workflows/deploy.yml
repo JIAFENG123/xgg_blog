@@ -83,8 +83,9 @@ jobs:
           key: ${{ secrets.PRIVATE_KEY }}
           script: |
             echo ${{ secrets.ALI_DOCKER_PASSWORD }} | docker login --username ${{ secrets.ALI_DOCKER_USERNAME }} --password-stdin ${{ secrets.ALI_DOCKER_REGISTRY }}
-            docker pull ${{ env.IMAGE_TAG }}
             docker container stop ${{ env.IMAGE_NAME}} || echo "停止容器[${{ env.IMAGE_NAME}}]异常"
             docker container rm ${{ env.IMAGE_NAME}} || echo "删除容器[${{ env.IMAGE_NAME}}]异常"
+            docker rmi ${{ env.IMAGE_TAG }}
+            docker pull ${{ env.IMAGE_TAG }}
             docker container run -p ${{ env.DOCKER_PORT }}:3000 -d --name ${{ env.IMAGE_NAME}} -it ${{ env.IMAGE_TAG }}
             docker restart nginx_wms
