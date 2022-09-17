@@ -7,17 +7,23 @@ export default (props: { data: ArticelData[] }) => {
   return (
     <>
       {props.data.map(({ title, summary, article_id, sammaryPic }, i) => {
+        
         return (
           <Link href={`blog?id=${article_id}`} key={article_id}>
             <div className=" rounded-md bg-light-100 dark:bg-dark-50 shadow-cardShadow mb-6 cursor-pointer">
-              <figure className="w-full max-h-271px overflow-hidden">
-                <img
-                  src={sammaryPic}
-                  // src={`https://picsum.photos/651/271?random=${i+1}`}
-                  alt="random"
-                  className="rounded-t-md w-full h-auto"
-                />
-              </figure>
+              {sammaryPic ? (
+                <figure className="w-full max-h-271px overflow-hidden">
+                  <img
+                    src={sammaryPic}
+                    // src={`https://picsum.photos/651/271?random=${i+1}`}
+                    alt="random"
+                    className="rounded-t-md w-full h-auto"
+                  />
+                </figure>
+              ) : (
+                <></>
+              )}
+
               <article className="p-5">
                 <p className="text-xs mb-2 dark:text-gray-300 text-gray-500">
                   <span className="mr-3">POSTED 2 YEARS AGO</span>

@@ -34,6 +34,7 @@ export default () => {
   useEffect(() => setMounted(true), [theme]);
   const color = theme === "light" ? "#595959" : "#c7b198";
   if (!mounted) return null;
+
   return (
     <MainSection className="flex-col items-center flex">
       <p className="text-3xl text-center p-4 text-articleTitle dark:text-nightArticleTitle">
@@ -56,9 +57,13 @@ export default () => {
           {createdAt?.slice(0, 10)}
         </div>
       </section>
-      <div className="max-h-80 overflow-hidden w-4/5 <md:w-full rounded-md">
-        <img src={sammaryPic} className="w-full h-auto " alt="pic" />
-      </div>
+      {sammaryPic ? (
+        <div className="max-h-80 overflow-hidden w-4/5 <md:w-full rounded-md">
+          <img src={sammaryPic} className="w-full h-auto " alt="pic" />
+        </div>
+      ) : (
+        <></>
+      )}
 
       <article
         id="article-md"

@@ -11,10 +11,15 @@ export default (props: { data: ArticelData[] }) => {
           return (
             <Link href={`blog?id=${article_id}`} key={article_id}>
               <article className="flex cursor-pointer max-w-full mb-3">
-                <figure className=" rounded overflow-hidden">
-                  <img src={sammaryPic} className=" w-16 h-16" alt="pic" />
-                </figure>
-                <section className="flex-1 flex flex-col ml-4">
+                {sammaryPic ? (
+                  <figure className=" rounded overflow-hidden mr-4">
+                    <img src={sammaryPic} className=" w-16 h-16" alt="pic" />
+                  </figure>
+                ) : (
+                  <></>
+                )}
+
+                <section className="flex-1 flex flex-col">
                   <span className="text-xs dark:text-gray-300 text-dark-50">
                     {createdAt.slice(0, 10)}
                   </span>
