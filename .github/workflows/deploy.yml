@@ -8,7 +8,7 @@ env:
   # docker仓库的命名空间，可进入容器镜像服务/实例列表/命名空间查看
   DOCKER_NAMESPACE: xgg-docker
   # 自定义的镜像基础名称
-  BASE_IMAGE_NAME: nextjs_demo
+  BASE_IMAGE_NAME: xgg_blog
   # 可以通过 对象存储/Bucket列表 新建或者查看bucket
   OSS_BUCKET: xgg-bucket
   # 可以通过 对象存储/Bucket列表/[对应bucket名称]/概览 来查看
