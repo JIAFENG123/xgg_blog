@@ -2,8 +2,11 @@
 const intercept = require("intercept-stdout")
 const WindiCSSWebpackPlugin = require("windicss-webpack-plugin");
 const optimizedImages = require('next-optimized-images');
+
+const isProd = process.env.NODE_ENV === 'production'
 const nextConfig = {
   reactStrictMode: false,
+  assetPrefix: isProd ? 'https://xgg-bucket.oss-cn-shenzhen.aliyuncs.com' : '',
   webpack(config) {
     config.plugins.push(new WindiCSSWebpackPlugin());
     return config;
@@ -13,6 +16,7 @@ const nextConfig = {
     domains: ['picsum.photos']
   },
 };
+
 
 
 
