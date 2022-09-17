@@ -53,7 +53,7 @@ jobs:
 
       # 对应第4步，上传前端资源到阿里云 OSS
       - name: Upload to OSS
-        run: ossutil cp -r .next/static/ oss://${{ env.OSS_BUCKET }}/_next/static
+        run: ossutil cp -r .next/ oss://${{ env.OSS_BUCKET }}/_next/
 
         # 第5步的准备工作，设置docker环境
       - name: Set up Docker Buildx
